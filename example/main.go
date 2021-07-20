@@ -5,7 +5,7 @@ import (
     "log"
     "net/http"
     "github.com/spf13/viper"
-    geometry "github.com/andrewlunde/theta-go"
+    geometry "github.com/andrewlunde/thetaoffchaingo"
 
 )
 
