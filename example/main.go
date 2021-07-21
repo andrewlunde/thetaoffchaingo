@@ -6,7 +6,7 @@ import (
     "net/http"
     "github.com/spf13/viper"
     geometry "github.com/andrewlunde/thetaoffchaingo"
-
+    "github.com/andrewlunde/thetaoffchaingo/common"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -39,8 +39,10 @@ func linksHandler(w http.ResponseWriter, r *http.Request) {
     // data := []byte("V1 of student's called")
     w.Header().Set("Content-Type", "text/html")
     w.WriteHeader(200)
-    fmt.Fprintf(w, '<a href="/offchain/links">links</a><br />\n')
-    fmt.Fprintf(w, '<a href="/offchain/hello">hello</a><br />\n')
+    fmt.Fprintf(w, "<a href=\"/offchain/links\">links</a><br />\n")
+    fmt.Fprintf(w, "<a href=\"/offchain/hello\">hello</a><br />\n")
+    fmt.Fprintf(w, "<a href=\"/index.html\">index</a><br />\n")
+    fmt.Fprintf(w, "<a href=\"/form.html\">form</a><br />\n")
     // w.Write(data)
 }
 
@@ -64,9 +66,11 @@ func main() {
 	}
 	fmt.Println(ellipse.GetEccentricity())
 
+    dzero := common.JSONUint64(uint64(0)
+    fmt.Println(dzero)
+
     fileServer := http.FileServer(http.Dir("./static")) 
     http.Handle("/", fileServer) 
-    http.Handle("/offchain", fileServer) 
 
     http.HandleFunc("/offchain/hello", helloHandler)
 
