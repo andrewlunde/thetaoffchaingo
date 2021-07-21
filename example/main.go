@@ -6,7 +6,6 @@ import (
     "net/http"
     "github.com/spf13/viper"
     geometry "github.com/andrewlunde/thetaoffchaingo"
-    "github.com/andrewlunde/thetaoffchaingo/common"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -66,8 +65,8 @@ func main() {
 	}
 	fmt.Println(ellipse.GetEccentricity())
 
-    dzero := common.JSONUint64(uint64(0)
-    fmt.Println(dzero)
+    // dzero := common.JSONUint64(uint64(0)
+    // fmt.Println(dzero)
 
     fileServer := http.FileServer(http.Dir("./static")) 
     http.Handle("/", fileServer) 
